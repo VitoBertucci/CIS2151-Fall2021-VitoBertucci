@@ -21,6 +21,8 @@ public class FastFoodAndSnack {
     }
 
     //methods
+
+    //get methods
     public String getName () {
         return name;
     }
@@ -30,8 +32,24 @@ public class FastFoodAndSnack {
     public String getURL () {
         return URL;
     }
-    public String display () {
 
-        return "final product";
+    //set methods
+    public void setName (String inputName) {
+        name = inputName;
+    }
+    public void setFoodType (String inputFoodType) {
+        foodType = inputFoodType;
+    }
+    public void setURL (String inputURL) {
+        URL = inputURL;
+    }
+
+    //display method
+    public void display () {
+        System.out.println("**********");
+        System.out.println("Name: " + name);
+        System.out.println("Food Type: " + foodType);
+        System.out.println("URL: " + URL );
+        System.out.println("**********");
     }
 }

@@ -41,10 +41,36 @@ Part 1:
 */
 
 package bertucci.cis2151.project_1;
+import java.util.Scanner;
 
 public class BertucciCIS2151Project_1 {
     public static void main(String[] args) {
-        FastFoodAndSnack TacoBell = new FastFoodAndSnack();
+        //create scanner obj
+        Scanner kb = new Scanner(System.in);
+
+        //prompt user and store responses
+        System.out.println("Enter Name:");
+        String userName = kb.nextLine();
+        System.out.println("Enter FoodType:");
+        String userFoodType = kb.nextLine();
+        System.out.println("Enter URL:");
+        String userURL = kb.nextLine();
+
+        //create restaurant object with user inputs and set attributes
+        FastFoodAndSnack restaurant = new FastFoodAndSnack(userName, userFoodType, userURL);
+        restaurant.setName(userName);
+        restaurant.setFoodType(userFoodType);
+        restaurant.setURL(userURL);
+
+        //display using the display method
+        System.out.println("----using display method----");
+        restaurant.display();
+
+        //display using get methods
+        System.out.println("------using get methods-----");
+        System.out.println("Name: " + restaurant.getName());
+        System.out.println("Food Type: " + restaurant.getFoodType());
+        System.out.println("URL: " + restaurant.getURL());
     }
     
 }
