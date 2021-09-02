@@ -15,9 +15,9 @@ public class FastFoodAndSnack {
 
     //non-default constuctor 
     public FastFoodAndSnack (String inputName, String inputFoodType, String inputURL) {
-        name = inputName;
-        foodType = inputFoodType;
-        URL = inputURL;
+        setName(inputName);
+        setFoodType(inputFoodType);
+        setURL(inputURL);
     }
 
     //methods
