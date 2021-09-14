@@ -13,8 +13,7 @@ public class BertucciCIS2151Project_1 {
         //create scanner obj
         Scanner kb = new Scanner(System.in);
 
-
-        //while loop for user choice on how many restaurants to store
+        //while loop for user to enter restaurants into arraylist
         while (choice.equalsIgnoreCase("y")) {
             System.out.println("---------------------");
 
@@ -40,23 +39,31 @@ public class BertucciCIS2151Project_1 {
             choice = kb.nextLine();
         }
 
+        //print all contents of objects from arraylist and display using display method
         System.out.println("------------------------------------------------");
-        System.out.println("All names of stored restaurants:");
-
-        //print contents of arrayList (print all entered restaurant names only)
+        System.out.println("All contents of stored restaurants:");
         for (int i = 0; i < Restaurants.size(); i++) {
-            System.out.println((Restaurants.get(i).getName()));
+            (Restaurants.get(i)).display();
         }
 
+        //print contents of arrayList (print all entered restaurant names only)
+        System.out.println("------------------------------------------------");
+
         //prompt for user to search for a restaurant by name
-        System.out.println("Please search for a restaurant by entering its name:");
+        System.out.println("Please search for a restaurant by entering one of the restaurant's names:");
+
+        //loop to print just the names of all restaurants
+        for (int i = 0; i < Restaurants.size(); i++) {
+            System.out.println(" - " + (Restaurants.get(i).getName()));
+        }
+
+        //create a string to store user search query
         String search = kb.nextLine();
 
         //search list for object with matching name
         Boolean found = false;
         int index = 0;
         while (!found && index < Restaurants.size()) {
-
             /*
             if the restaurant name at the index of the current iteration is the same as 
             search string, then display the restaurants url, if not, go to next iteration
@@ -77,7 +84,5 @@ public class BertucciCIS2151Project_1 {
         } else {
             System.out.println("No restaurant found matching that name, session ended.");
         }
-
-        
     }
 }
