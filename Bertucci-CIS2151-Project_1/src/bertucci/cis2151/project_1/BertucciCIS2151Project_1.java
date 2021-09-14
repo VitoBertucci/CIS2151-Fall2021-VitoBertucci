@@ -1,52 +1,83 @@
 package bertucci.cis2151.project_1;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class BertucciCIS2151Project_1 {
     public static void main(String[] args) {
+        //create arrayList for storing of restaurant objects
+        ArrayList<FastFoodAndSnack> Restaurants = new ArrayList<FastFoodAndSnack>();
+        
+        //declare string for user choice
+        String choice = "y";
+
         //create scanner obj
         Scanner kb = new Scanner(System.in);
 
-        //prompt user and store responses
-        System.out.println("Enter Name:");
-        String userName = kb.nextLine();
-        System.out.println("Enter FoodType:");
-        String userFoodType = kb.nextLine();
-        System.out.println("Enter URL:");
-        String userURL = kb.nextLine();
 
-        //create restaurant object with default constructor and set attributes with set methods
-        FastFoodAndSnack restaurant = new FastFoodAndSnack();
-        restaurant.setName(userName);
-        restaurant.setFoodType(userFoodType);
-        restaurant.setURL(userURL);
+        //while loop for user choice on how many restaurants to store
+        while (choice.equalsIgnoreCase("y")) {
+            System.out.println("---------------------");
 
-        //display using the display method
-        System.out.println("----using display method----");
-        restaurant.display();
+            //prompt user and store responses
+            System.out.println("Enter Name:");
+            String userName = kb.nextLine();
+            System.out.println("Enter FoodType:");
+            String userFoodType = kb.nextLine();
+            System.out.println("Enter URL:");
+            String userURL = kb.nextLine();
 
-        //display using get methods
-        System.out.println("------using get methods-----");
-        System.out.println("Name: " + restaurant.getName());
-        System.out.println("Food Type: " + restaurant.getFoodType());
-        System.out.println("URL: " + restaurant.getURL());
-        System.out.println("---create another object----");
+            //create restaurant object with default constructor and set attributes with set methods
+            FastFoodAndSnack restaurant = new FastFoodAndSnack();
+            restaurant.setName(userName);
+            restaurant.setFoodType(userFoodType);
+            restaurant.setURL(userURL);
 
-        //prompt user and store again for new restaurant object
-        System.out.println("Enter Name:");
-        userName = kb.nextLine();
-        System.out.println("Enter FoodType:");
-        userFoodType = kb.nextLine();
-        System.out.println("Enter URL:");
-        userURL = kb.nextLine();
+            //add that new object to list of objects
+            Restaurants.add(restaurant);
 
-        //create new second restaurant object using non-default constructor
-        FastFoodAndSnack restaurantAgain = new FastFoodAndSnack(userName, userFoodType, userURL);
+            //prompt user to end loop or not
+            System.out.println("Enter y to add another restaurant or n to finish adding restaurants");
+            choice = kb.nextLine();
+        }
 
-        //display using the display method
-        System.out.println("----using display method----");
-        restaurantAgain.display();
+        System.out.println("------------------------------------------------");
+        System.out.println("All names of stored restaurants:");
 
-        //end session message
-        System.out.println("Thank you, session ended.");
+        //print contents of arrayList (print all entered restaurant names only)
+        for (int i = 0; i < Restaurants.size(); i++) {
+            System.out.println((Restaurants.get(i).getName()));
+        }
+
+        //prompt for user to search for a restaurant by name
+        System.out.println("Please search for a restaurant by entering its name:");
+        String search = kb.nextLine();
+
+        //search list for object with matching name
+        Boolean found = false;
+        int index = 0;
+        while (!found && index < Restaurants.size()) {
+
+            /*
+            if the restaurant name at the index of the current iteration is the same as 
+            search string, then display the restaurants url, if not, go to next iteration
+            */
+            if (((Restaurants.get(index)).getName()).equalsIgnoreCase(search)) {
+                found = true;
+                System.out.println("**********************");
+                System.out.println("The searched restaurant's URL is: " + ((Restaurants.get(index)).getURL()));
+                System.out.println("**********************");
+            } else {
+                index++;
+            }
+        }
+
+        //session ended messages
+        if (found) {
+            System.out.println("Thank you, session ended.");
+        } else {
+            System.out.println("No restaurant found matching that name, session ended.");
+        }
+
+        
     }
 }
