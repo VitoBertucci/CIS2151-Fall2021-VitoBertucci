@@ -45,14 +45,12 @@ public class BertucciCIS2151Project_1 {
         for (int i = 0; i < Restaurants.size(); i++) {
             (Restaurants.get(i)).display();
         }
-
-        //print contents of arrayList (print all entered restaurant names only)
         System.out.println("------------------------------------------------");
 
         //prompt for user to search for a restaurant by name
         System.out.println("Please search for a restaurant by entering one of the restaurant's names:");
 
-        //loop to print just the names of all restaurants
+        //loop to print just the names of all restaurants for user to see
         for (int i = 0; i < Restaurants.size(); i++) {
             System.out.println(" - " + (Restaurants.get(i).getName()));
         }
