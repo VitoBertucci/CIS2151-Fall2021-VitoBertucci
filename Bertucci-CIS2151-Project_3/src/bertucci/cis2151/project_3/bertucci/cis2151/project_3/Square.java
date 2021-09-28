@@ -1,5 +1,5 @@
 package bertucci.cis2151.project_3;
-public class Square {
+public class Square extends Shape {
     /**
      * inherits shape class and contains:
          -public Square(double width)

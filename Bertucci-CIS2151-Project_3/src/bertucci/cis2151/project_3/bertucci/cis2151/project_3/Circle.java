@@ -1,5 +1,5 @@
 package bertucci.cis2151.project_3;
-public class Circle {
+public class Circle extends Shape {
     /**
      * inherits shape class and contains:
      * 
@@ -8,4 +8,15 @@ public class Circle {
      *  -public void setRadius(double radius)
      *  -public double getArea()
      */
+
+     //methods
+
+     //contructor
+     public Circle(double radius) {
+
+     }
+
+     public double getRadius() {
+         return radius;
+     }
 }
